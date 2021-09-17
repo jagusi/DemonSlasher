@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ladder
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -46,4 +48,10 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 4039455559
+    locked: 0
+  - name: 'Ladder '
+    uniqueID: 1216872195
+    locked: 0
+  - name: Player
+    uniqueID: 1641718865
     locked: 0
