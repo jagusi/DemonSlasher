@@ -9,7 +9,8 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private LayerMask platformsLayerMask;
     SpriteRenderer spriteRenderer;
     Animator anim;
-    private BoxCollider2D boxCollider2d;
+    private BoxCollider2D boxCollider2d; 
+    private CapsuleCollider2D capsuleCollider2d;
     Rigidbody2D rb;
     float jumpValue;
     float moveHorizontal;
@@ -19,6 +20,7 @@ public class MovePlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         boxCollider2d = GetComponent<BoxCollider2D>();
+        capsuleCollider2d = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -58,7 +60,8 @@ public class MovePlayer : MonoBehaviour
     // Nur Springen wenn auf Platform ist 
     private bool IsGrounded()
     {
-       RaycastHit2D raycastHit2d =  Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down , .1f, platformsLayerMask);
+       //RaycastHit2D raycastHit2d =  Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down , .1f, platformsLayerMask);
+        RaycastHit2D raycastHit2d =  Physics2D.BoxCast(boxCollider2d.bounds.center, capsuleCollider2d.bounds.size, 0f, Vector2.down , .1f, platformsLayerMask);
         Debug.Log(raycastHit2d.collider);
        return raycastHit2d.collider != null; 
     }
