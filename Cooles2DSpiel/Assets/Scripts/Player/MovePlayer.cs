@@ -89,7 +89,8 @@ public class MovePlayer : MonoBehaviour
        return raycastHit2d.collider != null; 
     }
 
-  
+   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Check ob man nähe der Leiter ist 

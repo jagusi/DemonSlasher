@@ -8,6 +8,8 @@ TagManager:
   - Platform
   - Coin
   - Hud
+  - Enemy
+  - Sword
   layers:
   - Default
   - TransparentFX

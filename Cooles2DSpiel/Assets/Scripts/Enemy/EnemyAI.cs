@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] int distance = 3;
     [SerializeField] float distanceVector;
     [SerializeField] int enemyHealth = 3;
+    bool enemyDead = false;
     Animator anim;
     SpriteRenderer spriteRenderer; 
     bool goToLeft = true;
@@ -31,13 +32,21 @@ public class EnemyAI : MonoBehaviour
   
     private void FixedUpdate()
     {
-        Move();
+        if(enemyDead == false)
+        {
+            Move();
+        }
+        
     }
     // Update is called once per frame
     void Update()
     {
 
-      
+      if(enemyHealth == 0)
+        {
+            anim.SetTrigger("dead");
+            enemyDead = true;
+        }
     }
     //Bewegung
     void Move()
