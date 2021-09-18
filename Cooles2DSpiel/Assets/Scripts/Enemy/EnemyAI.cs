@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] int distance = 3;
     [SerializeField] float distanceVector;
+    [SerializeField] int enemyHealth = 3;
+    Animator anim;
     SpriteRenderer spriteRenderer; 
     bool goToLeft = true;
     Vector2 targetVector;
@@ -17,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         startingPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -28,7 +31,7 @@ public class EnemyAI : MonoBehaviour
   
     private void FixedUpdate()
     {
-        Roam();
+        Move();
     }
     // Update is called once per frame
     void Update()
@@ -36,7 +39,8 @@ public class EnemyAI : MonoBehaviour
 
       
     }
-    void Roam()
+    //Bewegung
+    void Move()
     {
         //nach links bewegen
         if (goToLeft == true)
@@ -52,8 +56,9 @@ public class EnemyAI : MonoBehaviour
         }
         if (targetVector != null)
         {
-            rb.MovePosition(new Vector2(transform.position.x, transform.position.y) + targetVector * Time.fixedDeltaTime);
-             distanceVector = Vector2.Distance(startingPos, transform.position);
+            //rb.MovePosition(new Vector2(transform.position.x, transform.position.y) + targetVector * Time.fixedDeltaTime);
+            rb.velocity = targetVector*moveSpeed * Time.deltaTime; 
+            distanceVector = Vector2.Distance(startingPos, transform.position);
             
             if (distanceVector >= distance && goToLeft == true)
             {
@@ -64,5 +69,18 @@ public class EnemyAI : MonoBehaviour
                 goToLeft = true;
             }
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.name == "Sword")
+        {
+            enemyHealth -= 1;
+            anim.SetTrigger("hurt");
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+    
+        
     }
 }
