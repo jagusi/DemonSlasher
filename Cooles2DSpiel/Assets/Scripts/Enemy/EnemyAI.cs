@@ -78,6 +78,10 @@ public class EnemyAI : MonoBehaviour
             anim.SetTrigger("hurt");
         }
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+       
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
     
