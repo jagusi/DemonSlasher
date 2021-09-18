@@ -17,7 +17,18 @@ public class EnemyAI : MonoBehaviour
     Vector2 targetVector;
     Rigidbody2D rb;
     Vector2 startingPos;
+    float timer = 0f;
+    float waitTime = 3f;
+    bool timeStopped = false;
     // Start is called before the first frame update
+    public bool IsEnemyDead()
+    {
+        return enemyDead;
+    }                  
+    public void StopTime()
+    {
+        timeStopped = true;
+    }
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -32,20 +43,37 @@ public class EnemyAI : MonoBehaviour
   
     private void FixedUpdate()
     {
-        if(enemyDead == false)
+        if(enemyDead == false && timeStopped == false)
         {
             Move();
         }
+      
         
     }
     // Update is called once per frame
     void Update()
     {
 
-      if(enemyHealth == 0)
+      if(enemyHealth <= 0)
         {
             anim.SetTrigger("dead");
+            timer += Time.deltaTime;
+            if(timer >= waitTime)
+            {
+                Destroy(gameObject);
+            }
             enemyDead = true;
+        }
+        if (timeStopped == true)
+        {
+            anim.SetBool("timeStopped", true);
+            timer += Time.deltaTime;
+            if (timer >= waitTime)
+            {
+                timer = 0;
+                timeStopped = false;
+                anim.SetBool("timeStopped", false);
+            }
         }
     }
     //Bewegung
@@ -81,7 +109,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "Sword")
+        if(collision.name == "Sword" && enemyHealth >= 0)
         {
             enemyHealth -= 1;
             anim.SetTrigger("hurt");
