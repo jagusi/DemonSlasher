@@ -9,7 +9,7 @@ public class TimeStop : MonoBehaviour
     
     private void Awake()
     {
-        enemyAiScript = GetComponent<EnemyAI>();
+       // enemyAiScript = GetComponent<EnemyAI>();
     }
   
     // Start is called before the first frame update
@@ -28,6 +28,7 @@ public class TimeStop : MonoBehaviour
             
             if(hit.collider.gameObject.CompareTag("Enemy"))
             {
+                enemyAiScript = hit.collider.gameObject.GetComponent<EnemyAI>();
                 if (!enemyAiScript.IsEnemyDead())
                     enemyAiScript.StopTime();
             }

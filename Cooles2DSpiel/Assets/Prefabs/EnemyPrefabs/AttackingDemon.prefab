@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1133402890, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
+      propertyPath: enemyHealth
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123489, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_Name
-      value: Demon Variant 1
+      value: AttackingDemon
       objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123491, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_Color.b
@@ -29,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123492, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 44.644035
       objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123492, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10.382136
       objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123492, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_LocalPosition.z
