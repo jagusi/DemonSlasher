@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class CoinBehavior : MonoBehaviour
 {
-    [SerializeField] Text coinText;
     [SerializeField] AudioClip coinSFX;
     AudioSource audiosrc;
-    int coins;
+    HudBehavior hud;
     // Start is called before the first frame update
     void Start()
     {
-        audiosrc=GetComponent<AudioSource>();
+        audiosrc =GetComponent<AudioSource>();
+        GameObject gameScriptObject = GameObject.FindGameObjectWithTag("Hud");
+        hud = gameScriptObject.GetComponent<HudBehavior>();
     }
 
     // Update is called once per frame
@@ -23,16 +24,10 @@ public class CoinBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag.Equals("Coin"))
+        if (collision.tag.Equals("Player"))
         {
-            audiosrc.PlayOneShot(coinSFX);
-            coins++;
-            if (coins == 100)
-            {
-                coins = 0;
-                //LifeUp
-            }
-            coinText.text = coins.ToString();
+            //audiosrc.PlayOneShot(coinSFX);
+            hud.CoinUp();
             Destroy(gameObject);
         }
     }
