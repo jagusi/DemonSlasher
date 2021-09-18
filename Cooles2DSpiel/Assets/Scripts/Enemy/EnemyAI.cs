@@ -8,6 +8,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float agroRange;
     [SerializeField] float moveSpeed;
     [SerializeField] int distance = 3;
+    [SerializeField] float distanceVector;
+    SpriteRenderer spriteRenderer; 
     bool goToLeft = true;
     Vector2 targetVector;
     Rigidbody2D rb;
@@ -17,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     {
         startingPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -39,22 +42,24 @@ public class EnemyAI : MonoBehaviour
         if (goToLeft == true)
         {
             targetVector = Vector2.left;
+            spriteRenderer.flipX = true ;
         }
         //nach Rechts bewegen
         else if (goToLeft == false)
         {
             targetVector = Vector2.right;
+            spriteRenderer.flipX = false;
         }
         if (targetVector != null)
         {
             rb.MovePosition(new Vector2(transform.position.x, transform.position.y) + targetVector * Time.fixedDeltaTime);
-            float distanceVector = Vector2.Distance(startingPos, transform.position);
+             distanceVector = Vector2.Distance(startingPos, transform.position);
             
             if (distanceVector >= distance && goToLeft == true)
             {
                 goToLeft = false;
             }
-            else if (distanceVector <= 0.1 && goToLeft == false)
+            else if (distanceVector <= 0.2 && goToLeft == false)
             {
                 goToLeft = true;
             }

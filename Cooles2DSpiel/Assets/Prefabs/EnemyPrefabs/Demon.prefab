@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2235844193146123492}
   - component: {fileID: 2235844193146123491}
   - component: {fileID: 2235844193146123490}
-  - component: {fileID: 2235844193146123493}
   - component: {fileID: 2235844193146123494}
-  - component: {fileID: 2235844193146123495}
+  - component: {fileID: 1133402890}
+  - component: {fileID: 4556935341983330348}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b76d05889cc508d4bb9173df99e01ddd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24be022ebd1e5e54fa5889ff7a50c301, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,22 +106,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &2235844193146123493
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2235844193146123489}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.3333043, y: -0.15832072}
-  m_Size: {x: 0.4394418, y: 0.7811007}
-  m_Direction: 0
 --- !u!50 &2235844193146123494
 Rigidbody2D:
   serializedVersion: 4
@@ -143,7 +127,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2235844193146123495
+--- !u!114 &1133402890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,6 +136,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2235844193146123489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de2dbd9bb61ed240bc8e301a0ce8349, type: 3}
+  m_Script: {fileID: 11500000, guid: c5b5c579c2ecf09499e6e57ac9c620fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  agroRange: 0
+  moveSpeed: 0
+  distance: 3
+--- !u!70 &4556935341983330348
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235844193146123489}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.034410097, y: -0.003127064}
+  m_Size: {x: 0.5767696, y: 0.91460776}
+  m_Direction: 0
