@@ -46,9 +46,20 @@ public class MovePlayer : MonoBehaviour
             rb.velocity = new Vector2(moveHorizontal * walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
             anim.SetBool("run", true);
             if (moveHorizontal == -1)
-                spriteRenderer.flipX = true;
+            {
+
+                Vector3 rot = transform.rotation.eulerAngles;
+                rot = new Vector3(rot.x, 180, rot.z);
+                transform.rotation = Quaternion.Euler(rot);
+            }
+            //spriteRenderer.flipX = true;
             else
-                spriteRenderer.flipX = false;
+            {
+                Vector3 rot = transform.rotation.eulerAngles;
+                rot = new Vector3(rot.x, 0, rot.z);
+                transform.rotation = Quaternion.Euler(rot);
+            }
+                //spriteRenderer.flipX = false;
         }
         else
         {

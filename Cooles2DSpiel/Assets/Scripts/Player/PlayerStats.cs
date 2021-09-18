@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour
     {
         if(playerHp == 0)
         {
-
+            anim.SetTrigger("dead");
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
