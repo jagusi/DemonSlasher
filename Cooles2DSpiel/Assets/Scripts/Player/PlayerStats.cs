@@ -24,7 +24,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-             playerHp--;
+            playerHp--;
             anim.SetBool("hurt", true);
         }
     }
