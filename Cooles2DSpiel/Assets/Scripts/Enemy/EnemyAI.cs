@@ -20,8 +20,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]float timer = 0f;
     [SerializeField] float waitTime = 3f;
     bool timeStopped = false;
-    float timerForMoving = 0f;
-    float waitTimeForMoving = 3f;
+  
     // Start is called before the first frame update
     public bool IsEnemyDead()
     {
@@ -91,14 +90,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     // Timer Falls Enemy gegen Object läuft und nicht mehr Richtung ändert
-    void StartTimer()
-    {
-        timerForMoving += Time.deltaTime;
-        if (timerForMoving >= waitTimeForMoving)
-        {
-            timerForMoving = 0;
-        }
-    }
+ 
     //Bewegung
     void Move()
     {
@@ -139,13 +131,20 @@ public class EnemyAI : MonoBehaviour
             anim.SetTrigger("hurt");
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-       
-    }
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
-    
+        if (collision.gameObject.CompareTag("Objects"))
+        {
+            if(goToLeft == false)
+            {
+                goToLeft = true;
+            }
+            else if(goToLeft)
+            {
+                goToLeft = false;
+            }
+        }
         
     }
 }
