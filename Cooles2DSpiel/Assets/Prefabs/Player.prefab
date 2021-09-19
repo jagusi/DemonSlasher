@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseLeftKlick: 0
   enemyGameobject: {fileID: 0}
-  audioCntrl: {fileID: 0}
+  audioCntrl: {fileID: 6397317580939489447, guid: 603fe0a3641879549ae049a7b684cab8, type: 3}
 --- !u!114 &1441658511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +291,8 @@ MonoBehaviour:
   playerHp: 3
   startPosition: {fileID: 0}
   hud: {fileID: 0}
-  audioCntrl: {fileID: 0}
+  audioCntrl: {fileID: 6397317580939489447, guid: 603fe0a3641879549ae049a7b684cab8, type: 3}
+  gameoverCanvas: {fileID: 0}
 --- !u!114 &1254941857
 MonoBehaviour:
   m_ObjectHideFlags: 0

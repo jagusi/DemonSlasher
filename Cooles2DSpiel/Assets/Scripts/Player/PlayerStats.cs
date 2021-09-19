@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]Transform startPosition;
     [SerializeField] HudBehavior hud;
     [SerializeField] AudioController audioCntrl;
+    [SerializeField] Canvas gameoverCanvas;
 
     public int GetPlayerHP()
     {
@@ -27,7 +29,9 @@ public class PlayerStats : MonoBehaviour
         if(playerHp <= 0)
         {
             anim.SetTrigger("dead");
-           // Destroy(gameObject);
+            gameoverCanvas.enabled = true;
+            //Time.timeScale = 0;
+            Invoke("SceneLoader", 2.0f);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -65,5 +69,9 @@ public class PlayerStats : MonoBehaviour
         {
             Falling();
         }
+    }
+    void SceneLoader()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -7,14 +7,20 @@ public class HudBehavior : MonoBehaviour
 {
     [SerializeField] Text coinText, lifeText;
     [SerializeField] List<Image> batteryImage;
-    [SerializeField] PlayerStats playerStats;
+     PlayerStats playerStats;
+    int runes;
+    [SerializeField] Canvas winCanvas;
+     
     int lifes, coins,counter;
     // Start is called before the first frame update
     void Start()
     {
+        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        playerStats = playerGameObject.GetComponent<PlayerStats>();
         lifes = playerStats.GetPlayerHP();
         coins = 0;
         counter = 4;
+        runes = 0;
     }
 
     // Update is called once per frame
@@ -53,6 +59,15 @@ public class HudBehavior : MonoBehaviour
         {
             counter = 4;
             CancelInvoke();
+        }
+    }
+    public void RuneUp()
+    {
+        runes++;
+        if (runes == 4)
+        {
+            winCanvas.enabled = true;
+            Time.timeScale = 0;
         }
     }
 }

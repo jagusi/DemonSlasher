@@ -5,19 +5,18 @@ using UnityEngine.UI;
 
 public class CoinBehavior : MonoBehaviour
 {
-    [SerializeField] AudioClip coinSFX;
+    GameObject audioCntrlGameObject;
+    AudioController audioCntrl;
     [SerializeField] Image runeImage;
-    AudioSource audiosrc;
     HudBehavior hud;
     [SerializeField] bool itsArune;
-    int runes;
     // Start is called before the first frame update
     void Start()
     {
-        audiosrc =GetComponent<AudioSource>();
+        audioCntrlGameObject = GameObject.FindGameObjectWithTag("AudioController");
+        audioCntrl = audioCntrlGameObject.GetComponent<AudioController>();
         GameObject gameScriptObject = GameObject.FindGameObjectWithTag("Hud");
         hud = gameScriptObject.GetComponent<HudBehavior>();
-        runes = 0;
     }
 
     // Update is called once per frame
@@ -30,11 +29,11 @@ public class CoinBehavior : MonoBehaviour
     {
         if (collision.tag.Equals("Player"))
         {
-            //audiosrc.PlayOneShot(coinSFX);
+            audioCntrl.PlaySFXHit(2);
             Destroy(gameObject);
             if (itsArune)
             {
-                runes++;
+                hud.RuneUp();
                 runeImage.color = gameObject.GetComponent<SpriteRenderer>().color;
             }
             else
