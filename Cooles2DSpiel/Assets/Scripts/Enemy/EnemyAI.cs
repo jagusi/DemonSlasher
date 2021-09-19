@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    [SerializeField] float agroRange;
     [SerializeField] float moveSpeed;
     [SerializeField] int distance = 3;
     [SerializeField] float distanceVector;
     [SerializeField] int enemyHealth = 3;
+    [SerializeField] float timer = 0f;
+    [SerializeField] float waitTime = 3f;
     bool enemyDead = false;
     Animator anim;
     SpriteRenderer spriteRenderer; 
@@ -17,9 +17,9 @@ public class EnemyAI : MonoBehaviour
     Vector2 targetVector;
     Rigidbody2D rb;
     Vector2 startingPos;
-    [SerializeField]float timer = 0f;
-    [SerializeField] float waitTime = 3f;
+    
     bool timeStopped = false;
+    
   
     // Start is called before the first frame update
     public bool IsEnemyDead()
@@ -59,9 +59,9 @@ public class EnemyAI : MonoBehaviour
         {
             Move();
         }
-      
         
     }
+ 
     // Update is called once per frame
     void Update()
     {
@@ -88,7 +88,7 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
-
+  
     // Timer Falls Enemy gegen Object läuft und nicht mehr Richtung ändert
  
     //Bewegung

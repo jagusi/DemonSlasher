@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHp: 3
+  startPosition: {fileID: 0}
 --- !u!114 &1254941857
 MonoBehaviour:
   m_ObjectHideFlags: 0

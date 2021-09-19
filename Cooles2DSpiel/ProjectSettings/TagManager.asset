@@ -15,6 +15,7 @@ TagManager:
   - ColliderFalling
   - ColliderBarrier
   - ColliderFlag
+  - AttackingEnemy
   layers:
   - Default
   - TransparentFX
