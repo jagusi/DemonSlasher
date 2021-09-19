@@ -5,26 +5,37 @@ using UnityEngine;
 public class TimeStop : MonoBehaviour
 {
     [SerializeField] Camera mainCam;
+    [SerializeField] HudBehavior hud;
+    [SerializeField] float waitTime = 5f;
+    float timer = 0f;
+    bool timeStopped = false;
+    
     EnemyAI enemyAiScript;
     EnemyAttacking enemyAttackingScript;
     MoveablePlatform moveablePlatformScript;
-    HudBehavior hud;
+   
     private void Awake()
     {
-        // enemyAiScript = GetComponent<EnemyAI>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject gameScriptObject = GameObject.FindGameObjectWithTag("Hud");
-        hud = gameScriptObject.GetComponent<HudBehavior>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if(timeStopped == true)
+        {
+            timer += Time.deltaTime;
+            if (timer >= waitTime)
+            {
+                timeStopped = false;
+            }
+        }
+        if (Input.GetMouseButtonDown(1) && timeStopped == false)
         {
             Vector2 rayCastPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(rayCastPosition, Vector2.zero);
@@ -34,22 +45,34 @@ public class TimeStop : MonoBehaviour
 
                 enemyAttackingScript = hit.collider.gameObject.GetComponent<EnemyAttacking>();
                 if (!enemyAttackingScript.IsEnemyDead())
+                {
                     enemyAttackingScript.StopTime();
+                    hud.BatteryDown();
+                    timeStopped = true;
+                }
+                    
             }
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                hud.BatteryDown();
+                
                 enemyAiScript = hit.collider.gameObject.GetComponent<EnemyAI>();
-                if (!enemyAiScript.IsEnemyDead() )
+                if (!enemyAiScript.IsEnemyDead())
+                {
                     enemyAiScript.StopTime();
+                    hud.BatteryDown();
+                    timeStopped = true;
+                }
+                    
             }
              if (hit.collider.gameObject.CompareTag("MoveableObject"))
             {
-                hud.BatteryDown();
+              
                 moveablePlatformScript = hit.collider.gameObject.GetComponent<MoveablePlatform>() ;
                 if (!moveablePlatformScript.IsTimeStopped())
                 {
                     moveablePlatformScript.StopTime();
+                    hud.BatteryDown();
+                    timeStopped = true;
                 }
             }
         }

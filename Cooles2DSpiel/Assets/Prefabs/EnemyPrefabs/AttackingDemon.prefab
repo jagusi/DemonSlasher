@@ -100,6 +100,10 @@ PrefabInstance:
       value: AttackingDemon
       objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123489, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235844193146123489, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_TagString
       value: AttackingEnemy
       objectReference: {fileID: 0}
@@ -121,11 +125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123492, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.25
+      value: 6.43
       objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123492, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.41
+      value: 4.42
       objectReference: {fileID: 0}
     - target: {fileID: 2235844193146123492, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -179,7 +183,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.083454914
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1133402890, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
 --- !u!1 &7336904906282564339 stripped
 GameObject:

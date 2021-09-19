@@ -8,6 +8,12 @@ public class PlayerStats : MonoBehaviour
     Animator anim;
     Transform checkpoint;
     [SerializeField]Transform startPosition;
+    [SerializeField] HudBehavior hud;
+
+    public int GetPlayerHP()
+    {
+        return playerHp; 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +23,7 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerHp == 0)
+        if(playerHp <= 0)
         {
             anim.SetTrigger("dead");
         }
@@ -27,12 +33,14 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("AttackingEnemy"))
         {
             playerHp--;
+            hud.LifeChange(-1);
             anim.SetBool("hurt", true);
         }
     }
     void Falling()
     {
         playerHp--;
+        hud.LifeChange(-1);
         if(playerHp >= 1 && checkpoint == null)
         {
             transform.position = startPosition.position;

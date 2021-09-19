@@ -86,21 +86,20 @@ public class EnemyAttacking : MonoBehaviour
     void ChasePlayer()
     {
         // Wenn Player links vom Enemy ist 
-        if (distanceToPlayerX >= -aggroRange && distanceToPlayerX <= 0)
+        if (distanceToPlayerX >= -aggroRange && distanceToPlayerX <= 0 )
         {
             targetVector = Vector2.left;
-            //spriteRenderer.flipX = true;
             FlipSprite(true);
         }
         // Wenn Player rechts vom Enemy ist 
         else if (distanceToPlayerX <= aggroRange && distanceToPlayerX >= 0)
         {
             targetVector = Vector2.right;
-            //spriteRenderer.flipX = false;
             FlipSprite(false);
         }
         rb.velocity = (targetVector * moveSpeed * Time.fixedDeltaTime) + new Vector2(0, rb.velocity.y);
-        if(distanceToPlayerX >= -attackRange || distanceToPlayerX <= attackRange)
+        float dist = Vector2.Distance(transform.position, player.position);
+        if(distanceToPlayerX >= -attackRange && distanceToPlayerX <= attackRange)
         {
             anim.SetTrigger("attacking");
         }
@@ -138,7 +137,7 @@ public class EnemyAttacking : MonoBehaviour
         distanceToPlayerX = player.transform.position.x - transform.position.x;
         distanceToPlayerY = player.transform.position.y - transform.position.y;
 
-        if (distanceToPlayerX >= -aggroRange && distanceToPlayerX <= aggroRange)
+        if (distanceToPlayerX >= -aggroRange && distanceToPlayerX <= aggroRange && distanceToPlayerY >= -0.65 && distanceToPlayerY <= 1.25)
         {
             return true;
         }
