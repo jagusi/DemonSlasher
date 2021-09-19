@@ -48,7 +48,7 @@ public class HudBehavior : MonoBehaviour
     {
         batteryImage[counter].enabled = true;
         --counter;
-        if (counter>0)
+        if (counter<0)
         {
             counter = 4;
             CancelInvoke();
