@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TimeStop : MonoBehaviour
 {
-    [SerializeField] Camera camera;
+    [SerializeField] Camera mainCam;
     EnemyAI enemyAiScript;
+    EnemyAttacking enemyAttackingScript;
     MoveablePlatform moveablePlatformScript;
     HudBehavior hud;
     private void Awake()
@@ -25,10 +26,17 @@ public class TimeStop : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Vector2 rayCastPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 rayCastPosition = mainCam.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(rayCastPosition, Vector2.zero);
-            
-            if(hit.collider.gameObject.CompareTag("Enemy"))
+
+            if (hit.collider.gameObject.CompareTag("AttackingEnemy"))
+            {
+
+                enemyAttackingScript = hit.collider.gameObject.GetComponent<EnemyAttacking>();
+                if (!enemyAttackingScript.IsEnemyDead())
+                    enemyAttackingScript.StopTime();
+            }
+            if (hit.collider.gameObject.CompareTag("Enemy"))
             {
                 hud.BatteryDown();
                 enemyAiScript = hit.collider.gameObject.GetComponent<EnemyAI>();

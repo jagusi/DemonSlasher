@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHp: 3
+  startPosition: {fileID: 0}
 --- !u!114 &1254941857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,4 +301,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8e2c961ce421444ad91c62a9119250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
+  mainCam: {fileID: 0}
