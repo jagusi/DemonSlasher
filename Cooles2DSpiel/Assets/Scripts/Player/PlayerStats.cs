@@ -10,7 +10,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]Transform startPosition;
     [SerializeField] HudBehavior hud;
     [SerializeField] AudioController audioCntrl;
-
+    bool playerDead = false;
+    public bool IsPlayerDead()
+    {
+        return playerDead;
+    }
     public int GetPlayerHP()
     {
         return playerHp; 
@@ -27,7 +31,7 @@ public class PlayerStats : MonoBehaviour
         if(playerHp <= 0)
         {
             anim.SetTrigger("dead");
-            Destroy(gameObject);
+            playerDead = true;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

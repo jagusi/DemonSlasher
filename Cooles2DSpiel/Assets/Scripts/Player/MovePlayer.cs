@@ -8,6 +8,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] float walkSpeed = 5f;
     [SerializeField] private LayerMask platformsLayerMask;
     [SerializeField] GameObject platformTileMap;
+    [SerializeField] PlayerStats player;
     SpriteRenderer spriteRenderer;
     Animator anim;
     Rigidbody2D rb;
@@ -68,7 +69,11 @@ public class MovePlayer : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Move();
+        if (!player.IsPlayerDead())
+        {
+            Move();
+        }
+        
         // Leiter nutzen
         if (nearLadder == true)
         {

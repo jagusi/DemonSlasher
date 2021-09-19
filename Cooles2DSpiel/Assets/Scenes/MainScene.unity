@@ -180,6 +180,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+--- !u!114 &524306681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1441658511, guid: bfbfc1383da6ade428ef53c7cc7021c7, type: 3}
+  m_PrefabInstance: {fileID: 6885999309864100481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5803393bbd5e8d741bb685eb47df0477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &627572074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2235844193146123489, guid: cf0e22b642d9f8b4f8d11e204eeb844e, type: 3}
@@ -9992,6 +10003,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6885999309862658705, guid: bfbfc1383da6ade428ef53c7cc7021c7, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 524306681}
     - target: {fileID: 6885999309862658705, guid: bfbfc1383da6ade428ef53c7cc7021c7, type: 3}
       propertyPath: platformTileMap
       value: 
