@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class KeyBehavior : MonoBehaviour
 {
-    [SerializeField] Image key;
+    [SerializeField] Image silverKey, goldenKey;
+    string key;
+    bool silverk = false, goldenk = false;
     // Start is called before the first frame update
     void Start()
     {
+        key = gameObject.name;
     }
 
     // Update is called once per frame
@@ -21,7 +24,16 @@ public class KeyBehavior : MonoBehaviour
     {
         if (collision.tag.Equals("Player"))
         {
-            key.enabled = true;
+            if (key.Equals("SilverKey"))
+            {
+                silverKey.enabled = true;
+                silverk = true;
+            }
+            if (key.Equals("GoldenKey"))
+            {
+                goldenKey.enabled = true;
+                goldenk = true;
+            }
             Destroy(gameObject);
         }
     }
