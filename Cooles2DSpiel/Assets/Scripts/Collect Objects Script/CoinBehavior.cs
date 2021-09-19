@@ -10,12 +10,9 @@ public class CoinBehavior : MonoBehaviour
     [SerializeField] Image runeImage;
     HudBehavior hud;
     [SerializeField] bool itsArune;
-<<<<<<< HEAD
-=======
+
     [SerializeField] Canvas winCanvas;
     int runes;
->>>>>>> f14deb8b3c765d57922b5599538d77fecc3f3df6
-    // Start is called before the first frame update
     void Start()
     {
         audioCntrlGameObject = GameObject.FindGameObjectWithTag("AudioController");
