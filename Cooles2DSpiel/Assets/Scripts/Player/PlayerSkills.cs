@@ -11,6 +11,7 @@ public class PlayerSkills : MonoBehaviour
      private void Awake()
     {
         anim = GetComponent<Animator>();
+        
     }
     // Start is called before the first frame update
     void Start()

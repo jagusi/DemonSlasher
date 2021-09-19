@@ -27,7 +27,7 @@ public class PlayerStats : MonoBehaviour
         if(playerHp <= 0)
         {
             anim.SetTrigger("dead");
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,7 +35,7 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("AttackingEnemy"))
         {
             playerHp--;
-            //hud.LifeChange(-1);
+            hud.LifeChange(-1);
             anim.SetBool("hurt", true);
             audioCntrl.PlaySFXHit(1);
         }
@@ -55,12 +55,12 @@ public class PlayerStats : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Speicher Flaggen position falls man runterfällt für Respawn 
+        //Speicher Flaggen position falls man runterf?llt f?r Respawn 
         if (collision.gameObject.CompareTag("ColliderFlag"))
         {
             checkpoint = collision.gameObject.transform;
         }
-        //Falls man runterfällt
+        //Falls man runterf?llt
         if (collision.gameObject.CompareTag("ColliderFalling"))
         {
             Falling();

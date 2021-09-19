@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttacking : MonoBehaviour
 {
-    [SerializeField] Transform player;
+    Transform player;
     [SerializeField] float aggroRange = 6f;
     [SerializeField] float distanceToPlayerX;
     [SerializeField] float distanceToPlayerY;
@@ -23,7 +23,7 @@ public class EnemyAttacking : MonoBehaviour
     [SerializeField] float timer = 0f;
     [SerializeField] float waitTime = 3f;
     bool timeStopped = false;
-
+    GameObject playerObject;
 
     // Start is called before the first frame update
     public bool IsEnemyDead()
@@ -36,13 +36,15 @@ public class EnemyAttacking : MonoBehaviour
     }
     private void Awake()
     {
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        player = playerObject.transform;
         anim = GetComponent<Animator>();
         startingPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    //Ändere Farbe um zu zeigen das man es Interagierbar ist
+    //?ndere Farbe um zu zeigen das man es Interagierbar ist
     private void OnMouseEnter()
     {
         if (!enemyDead)

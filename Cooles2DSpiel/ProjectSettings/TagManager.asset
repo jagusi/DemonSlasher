@@ -16,6 +16,7 @@ TagManager:
   - ColliderBarrier
   - ColliderFlag
   - AttackingEnemy
+  - AudioController
   layers:
   - Default
   - TransparentFX
