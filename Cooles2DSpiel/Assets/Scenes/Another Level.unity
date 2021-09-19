@@ -86287,6 +86287,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &558222790 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1441658511, guid: bfbfc1383da6ade428ef53c7cc7021c7, type: 3}
+  m_PrefabInstance: {fileID: 597429476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5803393bbd5e8d741bb685eb47df0477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &586583159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86668,6 +86679,7 @@ MonoBehaviour:
   - {fileID: 2041444949}
   - {fileID: 1659264012}
   - {fileID: 1990071289}
+  playerStats: {fileID: 558222790}
 --- !u!4 &689628050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1190138668858409940, guid: 41b64428bc478451a8b07232c302183b, type: 3}
@@ -87397,7 +87409,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 3
 --- !u!222 &962347860
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -87746,9 +87758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f67dcece850a4b6c87b173044229f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 0}
-  lifeText: {fileID: 0}
+  coinText: {fileID: 1456935342}
+  lifeText: {fileID: 962347859}
   batteryImage: []
+  playerStats: {fileID: 558222790}
 --- !u!4 &1386148420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1268434757893644015, guid: bd7445ab0c1b14158a4f35383fb12001, type: 3}
