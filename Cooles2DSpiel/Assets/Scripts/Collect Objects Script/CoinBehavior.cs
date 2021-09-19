@@ -10,6 +10,7 @@ public class CoinBehavior : MonoBehaviour
     AudioSource audiosrc;
     HudBehavior hud;
     [SerializeField] bool itsArune;
+    [SerializeField] Canvas winCanvas;
     int runes;
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,11 @@ public class CoinBehavior : MonoBehaviour
             else
             {
                 hud.CoinUp();
+            }
+            if (runes==4)
+            {
+                Time.timeScale = 0;
+                winCanvas.enabled = true;
             }
         }
     }
