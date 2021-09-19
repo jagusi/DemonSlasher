@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseLeftKlick: 0
   enemyGameobject: {fileID: 0}
+  audioCntrl: {fileID: 0}
 --- !u!114 &1441658511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHp: 3
   startPosition: {fileID: 0}
+  hud: {fileID: 0}
+  audioCntrl: {fileID: 0}
 --- !u!114 &1254941857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,3 +305,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
+  hud: {fileID: 0}
+  waitTime: 5

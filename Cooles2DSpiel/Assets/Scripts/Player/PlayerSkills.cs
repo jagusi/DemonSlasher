@@ -7,7 +7,8 @@ public class PlayerSkills : MonoBehaviour
     Animator anim;
     [SerializeField] float mouseLeftKlick;
     [SerializeField] GameObject enemyGameobject;
-    private void Awake()
+    [SerializeField] AudioController audioCntrl;
+     private void Awake()
     {
         anim = GetComponent<Animator>();
     }
@@ -21,6 +22,7 @@ public class PlayerSkills : MonoBehaviour
         if(mouseLeftKlick == 1)
         {
             anim.SetTrigger("attack");
+            audioCntrl.PlaySFXHit(0);
         }
     }
     // Update is called once per frame
