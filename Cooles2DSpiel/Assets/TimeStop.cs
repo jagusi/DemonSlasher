@@ -6,7 +6,7 @@ public class TimeStop : MonoBehaviour
 {
     [SerializeField] Camera camera;
     EnemyAI enemyAiScript;
-    
+    MoveablePlatform moveablePlatformScript;
     private void Awake()
     {
        // enemyAiScript = GetComponent<EnemyAI>();
@@ -28,9 +28,19 @@ public class TimeStop : MonoBehaviour
             
             if(hit.collider.gameObject.CompareTag("Enemy"))
             {
+                
                 enemyAiScript = hit.collider.gameObject.GetComponent<EnemyAI>();
-                if (!enemyAiScript.IsEnemyDead())
+                if (!enemyAiScript.IsEnemyDead() )
                     enemyAiScript.StopTime();
+            }
+             if (hit.collider.gameObject.CompareTag("MoveableObject"))
+            {
+                moveablePlatformScript = hit.collider.gameObject.GetComponent<MoveablePlatform>() ;
+                if (!moveablePlatformScript.IsTimeStopped())
+                {
+                    moveablePlatformScript.StopTime();
+                }
+                
             }
         }
     }

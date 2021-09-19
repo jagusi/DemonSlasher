@@ -10,6 +10,8 @@ TagManager:
   - Hud
   - Enemy
   - Sword
+  - MoveableObject
+  - Objects
   layers:
   - Default
   - TransparentFX

@@ -17,9 +17,11 @@ public class EnemyAI : MonoBehaviour
     Vector2 targetVector;
     Rigidbody2D rb;
     Vector2 startingPos;
-    float timer = 0f;
-    float waitTime = 3f;
+    [SerializeField]float timer = 0f;
+    [SerializeField] float waitTime = 3f;
     bool timeStopped = false;
+    float timerForMoving = 0f;
+    float waitTimeForMoving = 3f;
     // Start is called before the first frame update
     public bool IsEnemyDead()
     {
@@ -35,6 +37,17 @@ public class EnemyAI : MonoBehaviour
         startingPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    //Ändere Farbe um zu zeigen das man es Interagierbar ist
+    private void OnMouseEnter()
+    {
+        if(!enemyDead)
+        spriteRenderer.color = Color.red;
+    }
+    private void OnMouseExit()
+    {
+        spriteRenderer.color = Color.white;
     }
     void Start()
     {
@@ -76,6 +89,16 @@ public class EnemyAI : MonoBehaviour
             }
         }
     }
+
+    // Timer Falls Enemy gegen Object läuft und nicht mehr Richtung ändert
+    void StartTimer()
+    {
+        timerForMoving += Time.deltaTime;
+        if (timerForMoving >= waitTimeForMoving)
+        {
+            timerForMoving = 0;
+        }
+    }
     //Bewegung
     void Move()
     {
@@ -93,9 +116,10 @@ public class EnemyAI : MonoBehaviour
         }
         if (targetVector != null)
         {
-            //rb.MovePosition(new Vector2(transform.position.x, transform.position.y) + targetVector * Time.fixedDeltaTime);
-            rb.velocity = targetVector*moveSpeed * Time.deltaTime; 
+           
+            rb.velocity = (targetVector *moveSpeed * Time.deltaTime) + new Vector2(0,rb.velocity.y); 
             distanceVector = Vector2.Distance(startingPos, transform.position);
+            
             
             if (distanceVector >= distance && goToLeft == true)
             {
