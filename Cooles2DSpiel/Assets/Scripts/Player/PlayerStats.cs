@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     Transform checkpoint;
     [SerializeField]Transform startPosition;
     [SerializeField] HudBehavior hud;
+    [SerializeField] AudioController audioCntrl;
 
     public int GetPlayerHP()
     {
@@ -26,6 +27,7 @@ public class PlayerStats : MonoBehaviour
         if(playerHp <= 0)
         {
             anim.SetTrigger("dead");
+            Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -33,8 +35,9 @@ public class PlayerStats : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("AttackingEnemy"))
         {
             playerHp--;
-            hud.LifeChange(-1);
+            //hud.LifeChange(-1);
             anim.SetBool("hurt", true);
+            audioCntrl.PlaySFXHit(1);
         }
     }
     void Falling()
