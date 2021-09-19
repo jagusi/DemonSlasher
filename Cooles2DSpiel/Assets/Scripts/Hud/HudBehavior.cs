@@ -7,11 +7,12 @@ public class HudBehavior : MonoBehaviour
 {
     [SerializeField] Text coinText, lifeText;
     [SerializeField] List<Image> batteryImage;
+    [SerializeField] PlayerStats playerStats;
     int lifes, coins,counter;
     // Start is called before the first frame update
     void Start()
     {
-        lifes = 3;
+        lifes = playerStats.GetPlayerHP();
         coins = 0;
         counter = 4;
     }
