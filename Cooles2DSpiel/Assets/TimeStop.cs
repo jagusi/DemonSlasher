@@ -7,15 +7,17 @@ public class TimeStop : MonoBehaviour
     [SerializeField] Camera camera;
     EnemyAI enemyAiScript;
     MoveablePlatform moveablePlatformScript;
+    HudBehavior hud;
     private void Awake()
     {
-       // enemyAiScript = GetComponent<EnemyAI>();
+        // enemyAiScript = GetComponent<EnemyAI>();
     }
-  
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject gameScriptObject = GameObject.FindGameObjectWithTag("Hud");
+        hud = gameScriptObject.GetComponent<HudBehavior>();
     }
 
     // Update is called once per frame
@@ -28,19 +30,19 @@ public class TimeStop : MonoBehaviour
             
             if(hit.collider.gameObject.CompareTag("Enemy"))
             {
-                
+                hud.BatteryDown();
                 enemyAiScript = hit.collider.gameObject.GetComponent<EnemyAI>();
                 if (!enemyAiScript.IsEnemyDead() )
                     enemyAiScript.StopTime();
             }
              if (hit.collider.gameObject.CompareTag("MoveableObject"))
             {
+                hud.BatteryDown();
                 moveablePlatformScript = hit.collider.gameObject.GetComponent<MoveablePlatform>() ;
                 if (!moveablePlatformScript.IsTimeStopped())
                 {
                     moveablePlatformScript.StopTime();
                 }
-                
             }
         }
     }

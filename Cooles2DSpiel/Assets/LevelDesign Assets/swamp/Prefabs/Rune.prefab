@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1793685332432023564}
   - component: {fileID: 3800224005509074631}
   - component: {fileID: 1383270442637096536}
+  - component: {fileID: 6390828086014863689}
   m_Layer: 0
   m_Name: Rune
   m_TagString: Untagged
@@ -120,3 +121,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0005665302, y: -0.012464011}
   m_Size: {x: 0.09034176, y: 0.105611496}
   m_Direction: 0
+--- !u!114 &6390828086014863689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533868843617213092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b7b1a14dfb641009ac7e360c437ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinSFX: {fileID: 0}
+  runeImage: []
+  itsArune: 0
