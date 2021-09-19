@@ -8,6 +8,10 @@ TagManager:
   - Platform
   - Coin
   - Hud
+  - Enemy
+  - Sword
+  - MoveableObject
+  - Objects
   layers:
   - Default
   - TransparentFX
@@ -44,6 +48,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PlatformsWithoutCollider
+    uniqueID: 1204283365
     locked: 0
   - name: Platforms
     uniqueID: 4264688133

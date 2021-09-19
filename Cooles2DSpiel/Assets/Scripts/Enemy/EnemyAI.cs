@@ -10,19 +10,43 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] int distance = 3;
     [SerializeField] float distanceVector;
     [SerializeField] int enemyHealth = 3;
+    bool enemyDead = false;
     Animator anim;
     SpriteRenderer spriteRenderer; 
     bool goToLeft = true;
     Vector2 targetVector;
     Rigidbody2D rb;
     Vector2 startingPos;
+    [SerializeField]float timer = 0f;
+    [SerializeField] float waitTime = 3f;
+    bool timeStopped = false;
+  
     // Start is called before the first frame update
+    public bool IsEnemyDead()
+    {
+        return enemyDead;
+    }                  
+    public void StopTime()
+    {
+        timeStopped = true;
+    }
     private void Awake()
     {
         anim = GetComponent<Animator>();
         startingPos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    //Ändere Farbe um zu zeigen das man es Interagierbar ist
+    private void OnMouseEnter()
+    {
+        if(!enemyDead)
+        spriteRenderer.color = Color.red;
+    }
+    private void OnMouseExit()
+    {
+        spriteRenderer.color = Color.white;
     }
     void Start()
     {
@@ -31,14 +55,42 @@ public class EnemyAI : MonoBehaviour
   
     private void FixedUpdate()
     {
-        Move();
+        if(enemyDead == false && timeStopped == false)
+        {
+            Move();
+        }
+      
+        
     }
     // Update is called once per frame
     void Update()
     {
 
-      
+      if(enemyHealth <= 0)
+        {
+            anim.SetTrigger("dead");
+            timer += Time.deltaTime;
+            if(timer >= waitTime)
+            {
+                Destroy(gameObject);
+            }
+            enemyDead = true;
+        }
+        if (timeStopped == true)
+        {
+            anim.SetBool("timeStopped", true);
+            timer += Time.deltaTime;
+            if (timer >= waitTime)
+            {
+                timer = 0;
+                timeStopped = false;
+                anim.SetBool("timeStopped", false);
+            }
+        }
     }
+
+    // Timer Falls Enemy gegen Object läuft und nicht mehr Richtung ändert
+ 
     //Bewegung
     void Move()
     {
@@ -56,9 +108,10 @@ public class EnemyAI : MonoBehaviour
         }
         if (targetVector != null)
         {
-            //rb.MovePosition(new Vector2(transform.position.x, transform.position.y) + targetVector * Time.fixedDeltaTime);
-            rb.velocity = targetVector*moveSpeed * Time.deltaTime; 
+           
+            rb.velocity = (targetVector *moveSpeed * Time.deltaTime) + new Vector2(0,rb.velocity.y); 
             distanceVector = Vector2.Distance(startingPos, transform.position);
+            
             
             if (distanceVector >= distance && goToLeft == true)
             {
@@ -72,19 +125,26 @@ public class EnemyAI : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "Sword")
+        if(collision.name == "Sword" && enemyHealth >= 0)
         {
             enemyHealth -= 1;
             anim.SetTrigger("hurt");
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-       
-    }
+   
     private void OnCollisionEnter2D(Collision2D collision)
     {
-    
+        if (collision.gameObject.CompareTag("Objects"))
+        {
+            if(goToLeft == false)
+            {
+                goToLeft = true;
+            }
+            else if(goToLeft)
+            {
+                goToLeft = false;
+            }
+        }
         
     }
 }

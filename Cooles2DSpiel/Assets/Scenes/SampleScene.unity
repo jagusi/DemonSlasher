@@ -1189,6 +1189,8 @@ MonoBehaviour:
   agroRange: 0
   moveSpeed: 0
   distance: 3
+  distanceVector: 0
+  enemyHealth: 3
 --- !u!1 &1488118725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,11 +1641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6885999309862658702, guid: bfbfc1383da6ade428ef53c7cc7021c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.76
+      value: 24.43
       objectReference: {fileID: 0}
     - target: {fileID: 6885999309862658702, guid: bfbfc1383da6ade428ef53c7cc7021c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15
+      value: 6.92
       objectReference: {fileID: 0}
     - target: {fileID: 6885999309862658702, guid: bfbfc1383da6ade428ef53c7cc7021c7, type: 3}
       propertyPath: m_LocalPosition.z
