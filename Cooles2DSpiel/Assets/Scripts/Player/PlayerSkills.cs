@@ -28,6 +28,7 @@ public class PlayerSkills : MonoBehaviour
     {
         mouseLeftKlick =  Input.GetAxisRaw("Fire1");
     }
+  
     private void OnCollisionEnter2D(Collision2D collision)
     {
    

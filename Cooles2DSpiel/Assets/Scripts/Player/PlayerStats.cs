@@ -6,6 +6,8 @@ public class PlayerStats : MonoBehaviour
 {
     [SerializeField] int playerHp = 3;
     Animator anim;
+    Transform checkpoint;
+    [SerializeField]Transform startPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +30,29 @@ public class PlayerStats : MonoBehaviour
             anim.SetBool("hurt", true);
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    void Falling()
     {
-
+        playerHp--;
+        if(playerHp >= 1 && checkpoint == null)
+        {
+            transform.position = startPosition.position;
+        }
+        if (playerHp >= 1 && checkpoint != null)
+        {
+            transform.position = checkpoint.position;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Speicher Flaggen position falls man runterfällt für Respawn 
+        if (collision.gameObject.CompareTag("ColliderFlag"))
+        {
+            checkpoint = collision.gameObject.transform;
+        }
+        //Falls man runterfällt
+        if (collision.gameObject.CompareTag("ColliderFalling"))
+        {
+            Falling();
+        }
     }
 }

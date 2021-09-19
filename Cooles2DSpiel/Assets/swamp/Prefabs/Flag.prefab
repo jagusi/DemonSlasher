@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7366556395260366957}
   m_Layer: 0
   m_Name: Flag
-  m_TagString: Untagged
+  m_TagString: ColliderFlag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.8079848, y: -1.3082706, z: 0}
   m_LocalScale: {x: 6, y: 10, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6844687554631988098}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -103,3 +104,89 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1873839726513390739
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 310468579188832281}
+    m_Modifications:
+    - target: {fileID: 1274388495024950758, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_Size.x
+      value: 0.38497674
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274388495024950758, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_Size.y
+      value: 0.49087906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274388495024950758, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.02137813
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274388495024950758, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.000000059604645
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274388495024950758, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.012
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0016
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167093937826004401, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_Name
+      value: CheckPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167093937826004401, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+      propertyPath: m_TagString
+      value: ColliderFlag
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+--- !u!4 &6844687554631988098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4970848489563551505, guid: d7682ce189133fb449b3ec17bb8c2a13, type: 3}
+  m_PrefabInstance: {fileID: 1873839726513390739}
+  m_PrefabAsset: {fileID: 0}

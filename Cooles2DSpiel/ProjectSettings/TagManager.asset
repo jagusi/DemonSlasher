@@ -12,6 +12,9 @@ TagManager:
   - Sword
   - MoveableObject
   - Objects
+  - ColliderFalling
+  - ColliderBarrier
+  - ColliderFlag
   layers:
   - Default
   - TransparentFX

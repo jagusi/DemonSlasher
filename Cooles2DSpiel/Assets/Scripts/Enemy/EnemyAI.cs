@@ -130,20 +130,27 @@ public class EnemyAI : MonoBehaviour
             enemyHealth -= 1;
             anim.SetTrigger("hurt");
         }
+        else if(collision.gameObject.tag == "ColliderBarrier")
+        {
+            ChangeDirection();
+        }
     }
-   
+  void ChangeDirection()
+    {
+            if (goToLeft == false)
+            {
+                goToLeft = true;
+            }
+            else if (goToLeft)
+            {
+                goToLeft = false;
+            }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Objects"))
         {
-            if(goToLeft == false)
-            {
-                goToLeft = true;
-            }
-            else if(goToLeft)
-            {
-                goToLeft = false;
-            }
+            ChangeDirection();
         }
         
     }
